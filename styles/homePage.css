@@ -4,13 +4,18 @@ body
     color: white;
 }
 
+/* NAVBAR START */
 .navBar
 {
     background-color: #16194D;
     width: 100%;
     height: 92px;
     display: flex;
+    position: relative;
+    
 }
+
+
 
 .homeBtn
 {
@@ -19,15 +24,15 @@ body
     
 }
 
-.modal 
-{
-    
-}
-
 .rulesBtn
 {
     background-color: transparent !important;
     border: none;
+    font-size: 30px;
+    align-self: center;
+    position: absolute;
+    top: 13px;
+    right: 190px;
 }
 
 .modal-header
@@ -62,3 +67,25 @@ body
     font-size: 30px;
 }
 
+.settingsBtn
+{
+    background-color: transparent !important;
+    border: none;
+    font-size: 30px;
+    align-self: center;
+    position: absolute;
+    top: 13px;
+    right: 40px;
+}
+
+.offcanvas-body
+{
+    background-color: #A6B1B7;
+}
+
+.offcanvas-header
+{
+    background-color: #A6B1B7 !important;
+}
+
+/* NAVBAR END */
