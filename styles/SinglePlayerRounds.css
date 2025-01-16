@@ -127,22 +127,23 @@ html
 {
     height: 90%;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    grid-column-gap: 30px;
     grid-template-rows: repeat(10, 1fr);
     background-image:url(../assets/Backgrounds/bd2f64c9-11f3-4457-94f9-a8682327dd59.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.singleBtn
+.oneRoundBtn
 {
-    grid-row: 8 / 9;
-    grid-column: 2 / 3;
+    grid-row: 5;
+    grid-column: 3 / 5;
     height: 70%;
-    width: 140%;
+    width: 100%;
 }
 
-.singleBtn button
+.oneRoundBtn button
 {
     background-color: #1C638C;
     color: white;
@@ -150,16 +151,33 @@ html
     width: 100%;
 }
 
-.multiBtn
+.fiveRoundBtn
 {
-    grid-row: 8 / 9;
-    grid-column: 3 / 5;
+    grid-row: 5;
+    grid-column: 5 / 7;
     height: 70%;
-    width: 70%;
-    margin-left: 177px;
+    width: 100%;
+    
 }
 
-.multiBtn button
+.fiveRoundBtn button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}
+
+.sevenRoundBtn
+{
+    grid-row: 5;
+    grid-column: 7 / 9;
+    height: 70%;
+    width: 100%;
+    
+}
+
+.sevenRoundBtn button
 {
     background-color: #1C638C;
     color: white;
@@ -169,7 +187,7 @@ html
 
 .header
 {
-    grid-column: 2 / 5;
+    grid-column: 3 / 9;
     grid-row: 2 / 5;
     
 }
@@ -180,10 +198,6 @@ html
 }
 
 
-.header h1
-{
-    font-size: 32px;
-}
 
 
 
