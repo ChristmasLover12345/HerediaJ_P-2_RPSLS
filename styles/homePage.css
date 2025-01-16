@@ -88,4 +88,36 @@ body
     background-color: #A6B1B7 !important;
 }
 
+.t-40
+{
+    font-size: 40px;
+}
+
+.volumeInput
+{
+    appearance: none; /*This allows me to customise the slider*/
+    width: 310px;
+    height: 30px;
+    background-color: #D9D9D9;
+}
+
+.volumeInput::-webkit-slider-thumb
+{
+    appearance: none;
+    height: 30px;
+    width: 20px;
+    background-color: black;
+}
+
 /* NAVBAR END */
+
+/*MAIN MENU START*/
+
+.mainBody
+{
+    width: 1fr;
+    height: 1fr;
+    background-image:url(../assets/Backgrounds/edec6b60-c1f4-45c9-ae0a-afdf44d00439.png)
+}
+
+/*MAIN MENU END*/
