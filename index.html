@@ -13,6 +13,32 @@
 <!-- NavBar -->
 <div class="navBar"> 
 
+<p class="homeBtn ps-4" id="homeBtn">Home</p>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary rulesBtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Rules
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title " id="staticBackdropLabel">Rules</h1>
+        </div>
+        <div class="modal-body">
+            SCISSORS beats PAPER and LIZARD<br>
+            PAPER beats SPROCK and ROCK<br>
+            ROCK beats LIZARD and SCISSORS<br>
+            LIZARD beats SPROCK and PAPER<br>
+            SPROCK beats SCISSORS and ROCK<br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary rulesCloseBtn" data-bs-dismiss="modal">X</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </div>

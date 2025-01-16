@@ -1,7 +1,64 @@
-
+body
+{
+    font-family: Deepwoken;
+    color: white;
+}
 
 .navBar
 {
     background-color: #16194D;
+    width: 100%;
+    height: 92px;
+    display: flex;
+}
+
+.homeBtn
+{
+    align-self: center;
+    font-size: 30px;
     
 }
+
+.modal 
+{
+    
+}
+
+.rulesBtn
+{
+    background-color: transparent !important;
+    border: none;
+}
+
+.modal-header
+{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.modal-title 
+{
+    font-size: 70px;
+}
+
+.modal-content
+{
+    background-color: #A6B1B7 ;
+    color: black;
+    font-size: 27px;
+}
+
+.modal-footer
+{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.rulesCloseBtn
+{
+    background-color: transparent !important;
+    border: none;
+    color: black;
+    font-size: 30px;
+}
+
