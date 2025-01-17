@@ -25,6 +25,10 @@ let ppBtn = document.getElementById("ppBtn")
 let lzBtn = document.getElementById("lzBtn")
 let spBtn = document.getElementById("spBtn")
 
+let winLossTextSingle = document.getElementById("winLossTextSingle")
+let winLossDescSingle = document.getElementById("winLossDescSingle")
+let playAgainBtnSingle = document.getElementById("playAgainBtnSingle")
+
 let playerScoreBoard = document.getElementById("playerScoreBoard")
 let playerChoice = document.getElementById("playerChoice")
 let playerScore = document.getElementById("playerScore")
@@ -38,6 +42,10 @@ let cpuScore = document.getElementById("cpuScore")
 let singleScore = 0;
 let singleCPUScore = 0;
 let victoryCondition = 0;
+let maxRounds = 0;
+let currentRound = 0;
+let userChoice = "";
+
 
 // Sound effect volume slider
 let setVolume = () => {
@@ -79,7 +87,8 @@ setVolume()
 
 function oneRound()
 {
-    victoryCondition = 1
+    maxRounds = 1;
+    victoryCondition = 1;
 
     roundsTittle.classList.toggle('hide')
     oneRoundBtn.classList.toggle('hide')
@@ -93,8 +102,9 @@ function oneRound()
     spBtn.classList.toggle('hide')
     playerScoreBoard.classList.toggle('hide')
     cpuScoreBoard.classList.toggle('hide')
+    winLossTextSingle.classList.toggle('hide')
+    winLossDescSingle.classList.toggle('hide')
     
-
 
 }
 
@@ -112,10 +122,91 @@ function singlePlayer()
 }
 
 oneRoundBtn.addEventListener('click', () => {
-    oneRound()
-    singleEnterCombat.play()
+    oneRound();
+    singleEnterCombat.play();
 })
 
 singleBtn.addEventListener('click', () => {
-    singlePlayer()
+    singlePlayer();
 })
+
+async function cpuHandFetch()
+{
+    const promise = await fetch("https://jherediarpslsendpoint-dyfvhue2d9b2hvh4.westus-01.azurewebsites.net/DeepGame/ThrowHand");
+    const data = await promise.text()
+    return data;
+}
+
+async function pveBattle(userChoice)
+{
+
+    if(currentRound >= maxRounds)
+    {
+        if(singleCPUScore == singleScore)
+        {
+        winLossTextSingle.textContent = "DRAW!"
+        winLossDescSingle.textContent = "And the fight must go on..."
+        }
+        playAgainBtnSingle.classList.toggle('hide')
+        return;
+    }
+
+    let cpuChoice = await cpuHandFetch()
+    console.log(cpuChoice)
+
+    if (userChoice == "SCISSORS")
+    {
+
+        if (cpuChoice == "PAPER" || cpuChoice == "LIZARD")
+        {
+            roundWonSound.play();
+            singleScore++;
+            playerScore.textContent = singleScore;
+        }
+        else if (cpuChoice == userChoice)
+        {
+            roundDrawSound.play();
+        }
+        else
+        {
+            roundLostSound.play();
+            singleCPUScore++;
+            cpuScore.textContent = singleCPUScore;
+        }
+
+    }
+    else if (userChoice == "ROCK")
+    {
+
+        if (cpuChoice == "LIZARD" || cpuChoice == "SCISSORS")
+        {
+            roundWonSound.play();
+            singleScore++;
+            playerScore.textContent = singleScore;
+        }
+        else if (cpuChoice == userChoice)
+        {
+            roundDrawSound.play();
+        }
+
+    }
+
+    if (singleScore == victoryCondition)
+    {
+        winLossTextSingle.textContent = "YOU WIN!"
+        winLossDescSingle.textContent = "You escaped the depths!"
+        gameWonSound.play()
+        playAgainBtnSingle.classList.toggle('hide')
+    }
+    else if (singleCPUScore == victoryCondition)
+    {
+        winLossTextSingle.textContent = "YOU LOSE..."
+        winLossDescSingle.textContent = "Rapidly dragged deeper into the depths, your soul is destroyed.."
+        gameLostSound.play()
+        playAgainBtnSingle.classList.toggle('hide')
+    }
+
+
+    currentRound++;
+
+}

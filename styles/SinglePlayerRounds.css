@@ -263,6 +263,7 @@ html
 {
     color: black;
     font-size: 30px;
+    margin: 0;
 }
 
 .playerScore p
@@ -283,6 +284,7 @@ html
 {
     color: black;
     font-size: 30px;
+    margin: 0;
 }
 
 .cpuScore p
@@ -291,6 +293,38 @@ html
     margin-bottom: 0;
 }
 
+.winLossTextSingle
+{
+    font-size: 40px;
+    grid-column: 4 / 8;
+    grid-row: 4;
+    margin-bottom: 35px;
+}
+
+.winLossDescSingle
+{
+    font-size: 30px;
+    grid-column: 3 / 9;
+    grid-row: 4;
+    align-self: flex-end;
+    margin: 0;
+}
+
+.playAgainBtn
+{
+    grid-row: 5;
+    grid-column: 5 / 7;
+    height: 70%;
+    width: 100%;
+}
+
+.playAgainBtn button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}
 
 .scBtn
 {
