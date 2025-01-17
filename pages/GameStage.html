@@ -10,16 +10,6 @@
     <link rel="stylesheet" href="../styles/MultiPlayerGameStage.css">
 </head>
 <body>
-
-  
-  <audio id="singleEnterCombat" src="../assets/SoundEffects/Enter_combat_depths.ogg"></audio>
-  <audio id="roundLostSound" src="../assets/SoundEffects/Guard-Break.mp3.mpeg"></audio>
-  <audio id="roundDrawSound" src="../assets/SoundEffects/Parry_Sound_(Real).mp3.mpeg"></audio>
-  <audio id="roundWonSound" src="../assets/SoundEffects/Hammer_Blunt_Hits_1.mp3.mpeg"></audio>
-  <audio id="gameWonSound" src="../assets/SoundEffects/Deepwoken-depths-trial-ascension-sound-effect-music-made-with-Voicemod.mp3.mpeg"></audio>
-  <audio id="gameLostSound" src="../assets/SoundEffects/Wiping_Sound_(1).mp3.mpeg"></audio>
-  
-    
     
 <!-- NavBar -->
 <div class="navBar"> 
@@ -42,10 +32,10 @@
             </div>
             <div class="modal-body">
                 SCISSORS beats PAPER and LIZARD<br>
-                PAPER beats SPROCK and ROCK<br>
+                PAPER beats SPOCK and ROCK<br>
                 ROCK beats LIZARD and SCISSORS<br>
-                LIZARD beats SPROCK and PAPER<br>
-                SPROCK beats SCISSORS and ROCK<br>
+                LIZARD beats SPOCK and PAPER<br>
+                SPOCK beats SCISSORS and ROCK<br>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary rulesCloseBtn" data-bs-dismiss="modal">X</button>
@@ -163,11 +153,14 @@
 <div class="playerChoicesDisplay hide" id="playerChoicesDisplay">
 
   <h4 class="text-center">Player 1 Chose:</h4>
-  <p id="playerOneChoice" class="text-center">???</p>
+  <p id="playerOneChoiceDisplay" class="text-center">???</p>
   <h4 class="text-center">Player 2 Chose:</h4>
-  <p class="text-center" id="playerTwoChoice">???</p>
+  <p class="text-center" id="playerTwoChoiceDisplay">???</p>
 
 </div>
+
+<h2 class="multiWinText text-center" id="multiWinText"></h2>
+<a class="playAgainBtnMulti hide" id="playAgainBtnMulti" href="./GameStage.html"><button>Play Again?</button></a>
 
 <a class="scBtnP1 hide" id="scBtnP1" ><button>SCISSORS</button></a>
 <a class="rkBtnP1 hide" id="rkBtnP1" ><button>ROCK</button></a>
@@ -183,11 +176,17 @@
 
 </div>
 
+<!-- Sound effects -->
+<audio id="gameModeSelectLoad" src="../assets/SoundEffects/City_Gate_End.mp3.mpeg"></audio>
+<audio id="singleEnterCombat" src="../assets/SoundEffects/Enter_combat_depths.ogg"></audio>
+<audio id="roundLostSound" src="../assets/SoundEffects/Guard-Break.mp3.mpeg"></audio>
+<audio id="roundDrawSound" src="../assets/SoundEffects/Parry_Sound_(Real).mp3.mpeg"></audio>
+<audio id="roundWonSound" src="../assets/SoundEffects/Hammer_Blunt_Hits_1.mp3.mpeg"></audio>
+<audio id="gameWonSound" src="../assets/SoundEffects/Deepwoken-depths-trial-ascension-sound-effect-music-made-with-Voicemod.mp3.mpeg"></audio>
+<audio id="gameLostSound" src="../assets/SoundEffects/Wiping_Sound_(1).mp3.mpeg"></audio>
+
 
 <script src="../scripts/app.js"></script>
-<!-- Below the script so the volume function can happen before the sound plays -->
-<audio autoplay ="autoplay" id="gameModeSelectLoad" src="../assets/SoundEffects/City_Gate_End.mp3.mpeg"></audio>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -54,16 +54,16 @@ let lzBtnP2 = document.getElementById("lzBtnP2")
 let spBtnP2 = document.getElementById("spBtnP2")
 
 let playerChoicesDisplay = document.getElementById("playerChoicesDisplay")
+let playAgainBtnMulti = document.getElementById("playAgainBtnMulti")
+let multiWinText = document.getElementById("multiWinText")
 
 let playerOneScoreBoard = document.getElementById("playerOneScoreBoard")
 let playerOneScore = document.getElementById("playerOneScore")
-let playerOneChoice = document.getElementById("playerOneChoice")
+let playerOneChoiceDisplay = document.getElementById("playerOneChoiceDisplay")
 
 let playerTwoScoreBoard = document.getElementById("playerTwoScoreBoard")
 let playerTwoScore = document.getElementById("playerTwoScore")
-let playerTwoChoice = document.getElementById("playerTwoChoice")
-
-
+let playerTwoChoiceDisplay = document.getElementById("playerTwoChoiceDisplay")
 
 
 
@@ -119,6 +119,7 @@ volumeControl.addEventListener('input', (event) =>{
 })
 
 setVolume()
+
 
 function oneRound()
 {
@@ -304,6 +305,7 @@ function multiPlayer()
 // chose single player
 singleBtn.addEventListener('click', () => {
     singlePlayer();
+    if(gameModeSelectLoad) {gameModeSelectLoad.play()}
 })
 
 // chose a round limit for single player
@@ -328,6 +330,7 @@ sevenRoundBtn.addEventListener('click', () => {
 
 multiBtn.addEventListener('click', () => {
     multiPlayer();
+    if(gameModeSelectLoad) {gameModeSelectLoad.play()}
 })
 
 // chose a round limit for multi player
@@ -572,4 +575,276 @@ lzBtn.addEventListener('click', () => {
 spBtn.addEventListener('click', () => {
     playerChoice.textContent = "SPOCK";
     pveBattle("SPOCK");
+})
+
+
+// MultiPlayer Logic
+async function pvpBattle(p1Choice, p2Choice)
+{
+
+    
+    // Checks if the round limit has been reached
+    if(currentRound >= maxRounds)
+    {
+        if(p1Score == p2Score)
+        {
+            multiWinText.textContent = "DRAW!"
+            playAgainBtnMulti.classList.toggle('hide')
+        }
+        else if (p1Score > p2Score) 
+        {
+            multiWinText.textContent = "PLAYER 1 ESCAPED THE DEPTHS!";
+            gameWonSound.play();
+        }
+        else 
+        {
+            multiWinText.textContent = "PLAYER 2 ESCAPED THE DEPTHS!";
+            gameWonSound.play();
+        }
+
+        return;
+    }
+
+
+    // Checks for round outcome
+    if (p1Choice == "SCISSORS")
+    {
+
+        if (p2Choice == "PAPER" || p2Choice == "LIZARD")
+        {
+            roundWonSound.play();
+            p1Score++;
+            playerOneScore.textContent = p1Score;
+        }
+        else if (p1Choice == p2Choice)
+        {
+            roundDrawSound.play();
+        }
+        else
+        {
+            roundWonSound.play();
+            p2Score++;
+            playerTwoScore.textContent = p2Score;
+        }
+
+    }
+    else if (p1Choice == "ROCK")
+    {
+
+        if (p2Choice == "LIZARD" || p2Choice == "SCISSORS")
+        {
+            roundWonSound.play();
+            p1Score++;
+            playerOneScore.textContent = p1Score;
+        }
+        else if (p1Choice == p2Choice)
+        {
+            roundDrawSound.play();
+        }
+        else
+        {
+            roundWonSound.play();
+            p2Score++;
+            playerTwoScore.textContent = p2Score;
+        }
+
+    }
+    else if (p1Choice == "PAPER")
+    {
+        if (p2Choice == "SPOCK" || p2Choice == "ROCK")
+            {
+                roundWonSound.play();
+                p1Score++;
+                playerOneScore.textContent = p1Score;
+            }
+            else if (p1Choice == p2Choice)
+            {
+                roundDrawSound.play();
+            }
+            else
+            {
+                roundWonSound.play();
+                p2Score++;
+                playerTwoScore.textContent = p2Score;
+            }
+
+    }
+    else if (p1Choice == "LIZARD")
+    {
+
+        if (p2Choice == "SPOCK" || p2Choice == "PAPER")
+            {
+                roundWonSound.play();
+                p1Score++;
+                playerOneScore.textContent = p1Score;
+            }
+            else if (p1Choice == p2Choice)
+            {
+                roundDrawSound.play();
+            }
+            else
+            {
+                roundWonSound.play();
+                p2Score++;
+                playerTwoScore.textContent = p2Score;
+            }
+
+    }
+    else if (p1Choice == "SPOCK")
+    {
+
+        if (p2Choice == "SCISSORS" || p2Choice == "ROCK")
+            {
+                roundWonSound.play();
+                p1Score++;
+                playerOneScore.textContent = p1Score;
+            }
+            else if (p1Choice == p2Choice)
+            {
+                roundDrawSound.play();
+            }
+            else
+            {
+                roundWonSound.play();
+                p2Score++;
+                playerTwoScore.textContent = p2Score;
+            }
+
+    }
+
+    playerOneChoiceDisplay.textContent = p1Choice;
+    playerTwoChoiceDisplay.textContent = p2Choice;
+
+    // checks if either player has reached the win condition
+    if (p1Score == victoryCondition)
+    {
+        multiWinText.textContent = "PLAYER 1 HAS ESCAPED THE DEPTHS!"
+        gameWonSound.play()
+        playAgainBtnMulti.classList.toggle('hide')
+        return;
+    }
+    else if (p2Score == victoryCondition)
+    {
+        multiWinText.textContent = "PLAYER 2 HAS ESCAPED THE DEPTHS!"
+        gameWonSound.play()
+        playAgainBtnMulti.classList.toggle('hide')
+        return;
+    }
+
+    
+    currentRound++;
+    // Checks again if the round limit is reached
+    if (currentRound == maxRounds)
+    {
+
+        if(p1Score > p2Score)
+        {
+            multiWinText.textContent = "PLAYER 1 HAS ESCAPED THE DEPTHS!"
+            gameWonSound.play()
+            playAgainBtnMulti.classList.toggle('hide')
+            
+        }
+        else if (p2Score > p1Score)
+        {
+            multiWinText.textContent = "PLAYER 2 HAS ESCAPED THE DEPTHS!"
+            gameWonSound.play()
+            playAgainBtnMulti.classList.toggle('hide')
+        
+        }
+        else
+        {
+        multiWinText.textContent = "DRAW!"
+        playAgainBtnMulti.classList.toggle('hide')
+        
+        }
+
+    }
+
+    p1Choice = "";
+    p2Choice = "";
+    p1Picked = false;
+    p2Picked = false;
+}
+
+// Player 1 buttons
+scBtnP1.addEventListener('click', () => {
+    p1Choice = "SCISSORS"
+    p1Picked = true
+
+    if (p1Picked && p2Picked)
+    {pvpBattle(p1Choice, p2Choice);}
+})
+
+rkBtnP1.addEventListener('click', () => {
+    p1Choice = "ROCK"
+    p1Picked = true
+
+    if (p1Picked && p2Picked)
+    {pvpBattle(p1Choice, p2Choice);}
+})
+
+ppBtnP1.addEventListener('click', () => {
+    p1Choice = "PAPER"
+    p1Picked = true
+
+    if (p1Picked && p2Picked)
+    {pvpBattle(p1Choice, p2Choice);}
+})
+
+lzBtnP1.addEventListener('click', () => {
+    p1Choice = "LIZARD"
+    p1Picked = true
+
+    if (p1Picked && p2Picked)
+    {pvpBattle(p1Choice, p2Choice);}
+})
+
+spBtnP1.addEventListener('click', () => {
+    p1Choice = "SPOCK"
+    p1Picked = true
+
+    if (p1Picked && p2Picked)
+    {pvpBattle(p1Choice, p2Choice);}
+})
+
+// Player 2 buttons
+
+scBtnP2.addEventListener('click', () => {
+    p2Choice = "SCISSORS"
+    p2Picked = true
+
+    if (p1Picked && p2Picked)
+    {pvpBattle(p1Choice, p2Choice);}
+})
+
+rkBtnP2.addEventListener('click', () => {
+    p2Choice = "ROCK"
+    p2Picked = true
+
+    if (p1Picked && p2Picked)
+    {pvpBattle(p1Choice, p2Choice);}
+})
+
+ppBtnP2.addEventListener('click', () => {
+    p2Choice = "PAPER"
+    p2Picked = true
+
+    if (p1Picked && p2Picked)
+    {pvpBattle(p1Choice, p2Choice);}
+})
+
+lzBtnP2.addEventListener('click', () => {
+    p2Choice = "LIZARD"
+    p2Picked = true
+
+    if (p1Picked && p2Picked)
+    {pvpBattle(p1Choice, p2Choice);}
+})
+
+spBtnP2.addEventListener('click', () => {
+    p2Choice = "SPOCK"
+    p2Picked = true
+
+    if (p1Picked && p2Picked)
+    {pvpBattle(p1Choice, p2Choice);}
 })

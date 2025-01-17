@@ -63,6 +63,31 @@
 }
 
 
+.multiWinText
+{
+    font-size: 22px;
+    grid-column: 5 / 7;
+    grid-row: 3 / 4;
+    
+}
+
+.playAgainBtnMulti
+{
+    grid-row: 5;
+    grid-column: 5 / 7;
+    height: 70%;
+    width: 100%;
+}
+
+.playAgainBtnMulti button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}
+
+
 
 .scBtnP1
 {
