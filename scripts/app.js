@@ -520,6 +520,8 @@ async function pveBattle(userChoice)
 
     
     currentRound++;
+    if (currentRound == 1) { winLossDescSingle.textContent = `${currentRound} round has passed..`}
+    else { winLossDescSingle.textContent = `${currentRound} rounds has passed..`}
     // Checks again if the round limit is reached
     if (currentRound == maxRounds)
     {
@@ -551,7 +553,7 @@ async function pveBattle(userChoice)
     }
 
 }
-
+// Single Player buttons
 scBtn.addEventListener('click', () => {
     playerChoice.textContent = "SCISSORS";
     pveBattle("SCISSORS");
@@ -733,6 +735,9 @@ async function pvpBattle(p1Choice, p2Choice)
 
     
     currentRound++;
+    if (currentRound == 1) { multiWinText.textContent = `${currentRound} round has passed..`}
+    else { multiWinText.textContent = `${currentRound} rounds has passed..`}
+    
     // Checks again if the round limit is reached
     if (currentRound == maxRounds)
     {

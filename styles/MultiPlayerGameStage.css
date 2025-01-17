@@ -16,6 +16,7 @@
 
 .playerOneScore p
 {
+    font-size: 20px;
     margin-bottom: 0;
 }
 
@@ -36,6 +37,7 @@
 
 .playerTwoScore p
 {
+    font-size: 20px;
     margin-bottom: 0;
 }
 

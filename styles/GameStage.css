@@ -270,7 +270,7 @@ html
 
 .playerScore p
 {
-    
+    font-size: 20px;
     margin-bottom: 0;
 }
 
@@ -291,7 +291,7 @@ html
 
 .cpuScore p
 {
-    
+    font-size: 20px;
     margin-bottom: 0;
 }
 
