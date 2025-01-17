@@ -36,6 +36,12 @@ let cpuScoreBoard = document.getElementById("cpuScoreBoard")
 let cpuChoiceDisplay = document.getElementById("cpuChoiceDisplay")
 let cpuScore = document.getElementById("cpuScore")
 
+// Multi player ID's
+let oneRoundBtnMulti = document.getElementById("oneRoundBtnMulti")
+let fiveRoundBtnMulti = document.getElementById("fiveRoundBtnMulti")
+let sevenRoundBtnMulti = document.getElementById("sevenRoundBtnMulti")
+
+
 
 
 
@@ -167,6 +173,25 @@ function singlePlayer()
 
 }
 
+function multiPlayer()
+{
+
+    headerChoseGameMode.classList.toggle('doNotShow')
+    multiBtn.classList.toggle('doNotShow')
+    singleBtn.classList.toggle('doNotShow')
+
+    oneRoundBtnMulti.classList.toggle('doNotShow')
+    fiveRoundBtnMulti.classList.toggle('doNotShow')
+    sevenRoundBtnMulti.classList.toggle('doNotShow')
+    roundsTittle.classList.toggle('doNotShow')
+
+}
+
+// chose single player
+singleBtn.addEventListener('click', () => {
+    singlePlayer();
+})
+
 // chose a round limit for single player
 oneRoundBtn.addEventListener('click', () => {
     oneRound();
@@ -183,10 +208,32 @@ sevenRoundBtn.addEventListener('click', () => {
     singleEnterCombat.play();
 })
 
-// chose single player
-singleBtn.addEventListener('click', () => {
-    singlePlayer();
+
+
+// Chose multiplayer
+
+multiBtn.addEventListener('click', () => {
+    multiPlayer();
 })
+
+// chose a round limit for single player
+oneRoundBtnMulti.addEventListener('click', () => {
+    oneRound();
+    singleEnterCombat.play();
+})
+
+fiveRoundBtnMulti.addEventListener('click', () => {
+    fiveRounds();
+    singleEnterCombat.play();
+})
+
+sevenRoundBtnMulti.addEventListener('click', () => {
+    sevenRounds();
+    singleEnterCombat.play();
+})
+
+
+// chose a round limit for multi player
 
 // Fetch CPU play
 async function cpuHandFetch()
