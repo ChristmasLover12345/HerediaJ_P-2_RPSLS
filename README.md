@@ -13,6 +13,7 @@
 
 
 Vercel: https://heredia-j-p-2-rpsls.vercel.app
+
 API Endpoint: https://jherediarpslsendpoint-dyfvhue2d9b2hvh4.westus-01.azurewebsites.net/DeepGame/ThrowHand
 
 List of changes in purpose from the figma:
