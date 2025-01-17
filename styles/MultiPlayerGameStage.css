@@ -1,0 +1,233 @@
+
+.playerOneScore
+{
+    grid-row: 3 ;
+    grid-column: 2 / 4;
+    background-color: #A6B1B7;
+    height: 100%;
+}
+
+.playerOneScore h4
+{
+    color: black;
+    font-size: 30px;
+    margin: 10px;
+}
+
+.playerOneScore p
+{
+    margin-bottom: 0;
+}
+
+.playerTwoScore
+{
+    grid-row: 3 ;
+    grid-column: 8 / 10;
+    background-color: #A6B1B7;
+    height: 100%;
+}
+
+.playerTwoScore h4
+{
+    color: black;
+    font-size: 30px;
+    margin: 10px;
+}
+
+.playerTwoScore p
+{
+    margin-bottom: 0;
+}
+
+
+.playerChoicesDisplay
+{
+    grid-row: 6 / 10 ;
+    grid-column: 5 / 7;
+    background-color: #A6B1B7;
+    height: 100%;
+}
+
+.playerChoicesDisplay h4
+{
+    color: black;
+    font-size: 30px;
+    margin: 10px;
+}
+
+.playerChoicesDisplay p
+{
+    margin-bottom: 20%;
+    font-size: 25px;
+    
+}
+
+
+
+.scBtnP1
+{
+    grid-row: 9;
+    grid-column: 2 / 4;
+    height: 70%;
+    width: 100%;
+}
+
+.scBtnP1 button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}
+
+.rkBtnP1
+{
+    grid-row: 8;
+    grid-column: 2 / 4;
+    height: 70%;
+    width: 100%;
+    
+}
+
+.rkBtnP1 button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}
+
+.ppBtnP1
+{
+    grid-row: 7;
+    grid-column: 2 / 4;
+    height: 70%;
+    width: 100%;
+    
+}
+
+.ppBtnP1 button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}
+
+.lzBtnP1
+{
+    grid-row: 6;
+    grid-column: 2 / 4;
+    height: 70%;
+    width: 100%;
+    
+}
+
+.lzBtnP1 button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}
+
+.spBtnP1
+{
+    grid-row: 5;
+    grid-column: 2 / 4;
+    height: 70%;
+    width: 100%;
+    
+}
+
+.spBtnP1 button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}
+
+.scBtnP2
+{
+    grid-row: 9;
+    grid-column: 8 / 10;
+    height: 70%;
+    width: 100%;
+}
+
+.scBtnP2 button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}
+
+.rkBtnP2
+{
+    grid-row: 8;
+    grid-column: 8 / 10;
+    height: 70%;
+    width: 100%;
+    
+}
+
+.rkBtnP2 button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}
+
+.ppBtnP2
+{
+    grid-row: 7;
+    grid-column: 8 / 10;
+    height: 70%;
+    width: 100%;
+    
+}
+
+.ppBtnP2 button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}
+
+.lzBtnP2
+{
+    grid-row: 6;
+    grid-column: 8 / 10;
+    height: 70%;
+    width: 100%;
+    
+}
+
+.lzBtnP2 button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}
+
+.spBtnP2
+{
+    grid-row: 5;
+    grid-column: 8 / 10;
+    height: 70%;
+    width: 100%;
+    
+}
+
+.spBtnP2 button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}

@@ -32,6 +32,7 @@ let playAgainBtnSingle = document.getElementById("playAgainBtnSingle")
 let playerScoreBoard = document.getElementById("playerScoreBoard")
 let playerChoice = document.getElementById("playerChoice")
 let playerScore = document.getElementById("playerScore")
+
 let cpuScoreBoard = document.getElementById("cpuScoreBoard")
 let cpuChoiceDisplay = document.getElementById("cpuChoiceDisplay")
 let cpuScore = document.getElementById("cpuScore")
@@ -40,6 +41,27 @@ let cpuScore = document.getElementById("cpuScore")
 let oneRoundBtnMulti = document.getElementById("oneRoundBtnMulti")
 let fiveRoundBtnMulti = document.getElementById("fiveRoundBtnMulti")
 let sevenRoundBtnMulti = document.getElementById("sevenRoundBtnMulti")
+
+let scBtnP1 = document.getElementById("scBtnP1")
+let rkBtnP1 = document.getElementById("rkBtnP1")
+let ppBtnP1 = document.getElementById("ppBtnP1")
+let lzBtnP1 = document.getElementById("lzBtnP1")
+let spBtnP1 = document.getElementById("spBtnP1")
+let scBtnP2 = document.getElementById("scBtnP2")
+let rkBtnP2 = document.getElementById("rkBtnP2")
+let ppBtnP2 = document.getElementById("ppBtnP2")
+let lzBtnP2 = document.getElementById("lzBtnP2")
+let spBtnP2 = document.getElementById("spBtnP2")
+
+let playerChoicesDisplay = document.getElementById("playerChoicesDisplay")
+
+let playerOneScoreBoard = document.getElementById("playerOneScoreBoard")
+let playerOneScore = document.getElementById("playerOneScore")
+let playerOneChoice = document.getElementById("playerOneChoice")
+
+let playerTwoScoreBoard = document.getElementById("playerTwoScoreBoard")
+let playerTwoScore = document.getElementById("playerTwoScore")
+let playerTwoChoice = document.getElementById("playerTwoChoice")
 
 
 
@@ -51,6 +73,13 @@ let victoryCondition = 0;
 let maxRounds = 0;
 let currentRound = 0;
 let userChoice = "";
+
+let p1Picked = false;
+let p2Picked = false;
+let p1Choice = "";
+let p2Choice = "";
+let p1Score = 0;
+let p2Score =0;
 
 
 // Sound effect volume slider
@@ -160,6 +189,91 @@ function sevenRounds()
 
 }
 
+
+function oneRoundMulti()
+{
+    maxRounds = 1;
+    victoryCondition = 1;
+
+    roundsTittle.classList.toggle('hide')
+    oneRoundBtnMulti.classList.toggle('hide')
+    fiveRoundBtnMulti.classList.toggle('hide')
+    sevenRoundBtnMulti.classList.toggle('hide')
+
+    scBtnP1.classList.toggle('hide')
+    rkBtnP1.classList.toggle('hide')
+    ppBtnP1.classList.toggle('hide')
+    lzBtnP1.classList.toggle('hide')
+    spBtnP1.classList.toggle('hide')
+
+    scBtnP2.classList.toggle('hide')
+    rkBtnP2.classList.toggle('hide')
+    ppBtnP2.classList.toggle('hide')
+    lzBtnP2.classList.toggle('hide')
+    spBtnP2.classList.toggle('hide')
+  
+    playerOneScoreBoard.classList.toggle('hide')
+    playerTwoScoreBoard.classList.toggle('hide')
+    playerChoicesDisplay.classList.toggle('hide')
+
+}
+
+function fiveRoundsMulti()
+{
+    maxRounds = 5;
+    victoryCondition = 3;
+
+    roundsTittle.classList.toggle('hide')
+    oneRoundBtnMulti.classList.toggle('hide')
+    fiveRoundBtnMulti.classList.toggle('hide')
+    sevenRoundBtnMulti.classList.toggle('hide')
+
+    scBtnP1.classList.toggle('hide')
+    rkBtnP1.classList.toggle('hide')
+    ppBtnP1.classList.toggle('hide')
+    lzBtnP1.classList.toggle('hide')
+    spBtnP1.classList.toggle('hide')
+
+    scBtnP2.classList.toggle('hide')
+    rkBtnP2.classList.toggle('hide')
+    ppBtnP2.classList.toggle('hide')
+    lzBtnP2.classList.toggle('hide')
+    spBtnP2.classList.toggle('hide')
+
+    playerOneScoreBoard.classList.toggle('hide')
+    playerTwoScoreBoard.classList.toggle('hide')
+    playerChoicesDisplay.classList.toggle('hide')
+}
+
+function sevenRoundsMulti()
+{
+    maxRounds = 7;
+    victoryCondition = 4;
+
+    roundsTittle.classList.toggle('hide')
+    oneRoundBtnMulti.classList.toggle('hide')
+    fiveRoundBtnMulti.classList.toggle('hide')
+    sevenRoundBtnMulti.classList.toggle('hide')
+
+    scBtnP1.classList.toggle('hide')
+    rkBtnP1.classList.toggle('hide')
+    ppBtnP1.classList.toggle('hide')
+    lzBtnP1.classList.toggle('hide')
+    spBtnP1.classList.toggle('hide')
+
+    scBtnP2.classList.toggle('hide')
+    rkBtnP2.classList.toggle('hide')
+    ppBtnP2.classList.toggle('hide')
+    lzBtnP2.classList.toggle('hide')
+    spBtnP2.classList.toggle('hide')
+
+    playerOneScoreBoard.classList.toggle('hide')
+    playerTwoScoreBoard.classList.toggle('hide')
+    playerChoicesDisplay.classList.toggle('hide')
+
+}
+
+
 function singlePlayer()
 {
     headerChoseGameMode.classList.toggle('doNotShow')
@@ -216,19 +330,19 @@ multiBtn.addEventListener('click', () => {
     multiPlayer();
 })
 
-// chose a round limit for single player
+// chose a round limit for multi player
 oneRoundBtnMulti.addEventListener('click', () => {
-    oneRound();
+    oneRoundMulti();
     singleEnterCombat.play();
 })
 
 fiveRoundBtnMulti.addEventListener('click', () => {
-    fiveRounds();
+    fiveRoundsMulti();
     singleEnterCombat.play();
 })
 
 sevenRoundBtnMulti.addEventListener('click', () => {
-    sevenRounds();
+    sevenRoundsMulti();
     singleEnterCombat.play();
 })
 
