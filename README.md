@@ -8,7 +8,8 @@
 
  // Made a RPSLS utilizing javascript and my own API with sound effects 
 
-// peer reviewed by: 
+// peer reviewed by: Gianpaolo Reinares
+> comments: Code Looks Good; Site looks amazing; Love the added sound effects and features; personally, I would make it so that draws don't count as a round, but considering the way that you implemented it into the system fits really well; Great Job
 
 
 Vercel: https://heredia-j-p-2-rpsls.vercel.app
