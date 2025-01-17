@@ -33,7 +33,7 @@ let playerScoreBoard = document.getElementById("playerScoreBoard")
 let playerChoice = document.getElementById("playerChoice")
 let playerScore = document.getElementById("playerScore")
 let cpuScoreBoard = document.getElementById("cpuScoreBoard")
-let cpuChoice = document.getElementById("cpuChoice")
+let cpuChoiceDisplay = document.getElementById("cpuChoiceDisplay")
 let cpuScore = document.getElementById("cpuScore")
 
 
@@ -108,6 +108,52 @@ function oneRound()
 
 }
 
+function fiveRounds()
+{
+    maxRounds = 5;
+    victoryCondition = 3;
+
+    roundsTittle.classList.toggle('hide')
+    oneRoundBtn.classList.toggle('hide')
+    fiveRoundBtn.classList.toggle('hide')
+    sevenRoundBtn.classList.toggle('hide')
+
+    scBtn.classList.toggle('hide')
+    rkBtn.classList.toggle('hide')
+    ppBtn.classList.toggle('hide')
+    lzBtn.classList.toggle('hide')
+    spBtn.classList.toggle('hide')
+    playerScoreBoard.classList.toggle('hide')
+    cpuScoreBoard.classList.toggle('hide')
+    winLossTextSingle.classList.toggle('hide')
+    winLossDescSingle.classList.toggle('hide')
+    
+
+}
+
+function sevenRounds()
+{
+    maxRounds = 7;
+    victoryCondition = 4;
+
+    roundsTittle.classList.toggle('hide')
+    oneRoundBtn.classList.toggle('hide')
+    fiveRoundBtn.classList.toggle('hide')
+    sevenRoundBtn.classList.toggle('hide')
+
+    scBtn.classList.toggle('hide')
+    rkBtn.classList.toggle('hide')
+    ppBtn.classList.toggle('hide')
+    lzBtn.classList.toggle('hide')
+    spBtn.classList.toggle('hide')
+    playerScoreBoard.classList.toggle('hide')
+    cpuScoreBoard.classList.toggle('hide')
+    winLossTextSingle.classList.toggle('hide')
+    winLossDescSingle.classList.toggle('hide')
+    
+
+}
+
 function singlePlayer()
 {
     headerChoseGameMode.classList.toggle('doNotShow')
@@ -121,15 +167,28 @@ function singlePlayer()
 
 }
 
+// chose a round limit for single player
 oneRoundBtn.addEventListener('click', () => {
     oneRound();
     singleEnterCombat.play();
 })
 
+fiveRoundBtn.addEventListener('click', () => {
+    fiveRounds();
+    singleEnterCombat.play();
+})
+
+sevenRoundBtn.addEventListener('click', () => {
+    sevenRounds();
+    singleEnterCombat.play();
+})
+
+// chose single player
 singleBtn.addEventListener('click', () => {
     singlePlayer();
 })
 
+// Fetch CPU play
 async function cpuHandFetch()
 {
     const promise = await fetch("https://jherediarpslsendpoint-dyfvhue2d9b2hvh4.westus-01.azurewebsites.net/DeepGame/ThrowHand");
@@ -137,23 +196,41 @@ async function cpuHandFetch()
     return data;
 }
 
+// Single player Logic
 async function pveBattle(userChoice)
 {
-
-    if(currentRound >= maxRounds)
-    {
-        if(singleCPUScore == singleScore)
-        {
-        winLossTextSingle.textContent = "DRAW!"
-        winLossDescSingle.textContent = "And the fight must go on..."
-        }
-        playAgainBtnSingle.classList.toggle('hide')
-        return;
-    }
 
     let cpuChoice = await cpuHandFetch()
     console.log(cpuChoice)
 
+    cpuChoiceDisplay.textContent = cpuChoice
+
+    // Checks if the round limit has been reached
+    if(currentRound >= maxRounds)
+    {
+        if(singleCPUScore == singleScore)
+        {
+            winLossTextSingle.textContent = "DRAW!"
+            winLossDescSingle.textContent = "And the fight must go on..."
+            playAgainBtnSingle.classList.toggle('hide')
+        }
+        else if (singleScore > singleCPUScore) 
+        {
+            winLossTextSingle.textContent = "YOU WIN!";
+            winLossDescSingle.textContent = "You escaped the depths!";
+            gameWonSound.play();
+        }
+        else 
+        {
+            winLossTextSingle.textContent = "YOU LOSE...";
+            winLossDescSingle.textContent = "Rapidly dragged deeper into the depths, your soul is destroyed...";
+            gameLostSound.play();
+        }
+
+        return;
+    }
+
+    // Checks for round outcome
     if (userChoice == "SCISSORS")
     {
 
@@ -188,15 +265,85 @@ async function pveBattle(userChoice)
         {
             roundDrawSound.play();
         }
+        else
+        {
+            roundLostSound.play();
+            singleCPUScore++;
+            cpuScore.textContent = singleCPUScore;
+        }
+
+    }
+    else if (userChoice == "PAPER")
+    {
+        if (cpuChoice == "SPOCK" || cpuChoice == "ROCK")
+            {
+                roundWonSound.play();
+                singleScore++;
+                playerScore.textContent = singleScore;
+            }
+            else if (cpuChoice == userChoice)
+            {
+                roundDrawSound.play();
+            }
+            else
+            {
+                roundLostSound.play();
+                singleCPUScore++;
+                cpuScore.textContent = singleCPUScore;
+            }
+
+    }
+    else if (userChoice == "LIZARD")
+    {
+
+        if (cpuChoice == "SPOCK" || cpuChoice == "PAPER")
+            {
+                roundWonSound.play();
+                singleScore++;
+                playerScore.textContent = singleScore;
+            }
+            else if (cpuChoice == userChoice)
+            {
+                roundDrawSound.play();
+            }
+            else
+            {
+                roundLostSound.play();
+                singleCPUScore++;
+                cpuScore.textContent = singleCPUScore;
+            }
+
+    }
+    else if (userChoice == "SPOCK")
+    {
+
+        if (cpuChoice == "SCISSORS" || cpuChoice == "ROCK")
+            {
+                roundWonSound.play();
+                singleScore++;
+                playerScore.textContent = singleScore;
+            }
+            else if (cpuChoice == userChoice)
+            {
+                roundDrawSound.play();
+            }
+            else
+            {
+                roundLostSound.play();
+                singleCPUScore++;
+                cpuScore.textContent = singleCPUScore;
+            }
 
     }
 
+    // checks if either player has reached the win condition
     if (singleScore == victoryCondition)
     {
         winLossTextSingle.textContent = "YOU WIN!"
         winLossDescSingle.textContent = "You escaped the depths!"
         gameWonSound.play()
         playAgainBtnSingle.classList.toggle('hide')
+        return;
     }
     else if (singleCPUScore == victoryCondition)
     {
@@ -204,9 +351,64 @@ async function pveBattle(userChoice)
         winLossDescSingle.textContent = "Rapidly dragged deeper into the depths, your soul is destroyed.."
         gameLostSound.play()
         playAgainBtnSingle.classList.toggle('hide')
+        return;
     }
 
-
+    
     currentRound++;
+    // Checks again if the round limit is reached
+    if (currentRound == maxRounds)
+    {
+
+        if(singleScore > singleCPUScore)
+        {
+            winLossTextSingle.textContent = "YOU WIN!"
+            winLossDescSingle.textContent = "You escaped the depths!"
+            gameWonSound.play()
+            playAgainBtnSingle.classList.toggle('hide')
+            
+        }
+        else if (singleCPUScore > singleScore)
+        {
+        winLossTextSingle.textContent = "YOU LOSE..."
+        winLossDescSingle.textContent = "Rapidly dragged deeper into the depths, your soul is destroyed.."
+        gameLostSound.play()
+        playAgainBtnSingle.classList.toggle('hide')
+        
+        }
+        else
+        {
+        winLossTextSingle.textContent = "DRAW!"
+        winLossDescSingle.textContent = "And the fight must go on..."
+        playAgainBtnSingle.classList.toggle('hide')
+        
+        }
+
+    }
 
 }
+
+scBtn.addEventListener('click', () => {
+    playerChoice.textContent = "SCISSORS";
+    pveBattle("SCISSORS");
+})
+
+rkBtn.addEventListener('click', () => {
+    playerChoice.textContent = "ROCK";
+    pveBattle("ROCK");
+})
+
+ppBtn.addEventListener('click', () => {
+    playerChoice.textContent = "PAPER";
+    pveBattle("PAPER");
+})
+
+lzBtn.addEventListener('click', () => {
+    playerChoice.textContent = "LIZARD";
+    pveBattle("LIZARD");
+})
+
+spBtn.addEventListener('click', () => {
+    playerChoice.textContent = "SPOCK";
+    pveBattle("SPOCK");
+})

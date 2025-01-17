@@ -121,7 +121,7 @@ html
 
 /* NAVBAR END */
 
-/*MAIN MENU START*/
+/*MAIN BODY START*/
 
 .mainBody
 {
@@ -135,6 +135,8 @@ html
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/* SINGLE PLAYER START */
 
 .singleBtn
 {
@@ -420,4 +422,6 @@ html
     display: none;
 }
 
-/*MAIN MENU END*/
+/* SINGLE PLAYER START */
+
+/*MAIN BODY END*/
