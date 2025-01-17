@@ -10,6 +10,7 @@
 </head>
 <body>
 
+  <audio autoplay ="autoplay" id="gameModeSelectLoad" src="../assets/SoundEffects/City_Gate_End.mp3.mpeg"></audio>
   <audio id="singleEnterCombat" src="../assets/SoundEffects/Enter_combat_depths.ogg"></audio>
   <audio id="roundLostSound" src="../assets/SoundEffects/Guard-Break.mp3.mpeg"></audio>
   <audio id="roundDrawSound" src="../assets/SoundEffects/Parry_Sound_(Real).mp3.mpeg"></audio>
@@ -80,15 +81,34 @@
 <!-- Content -->
 <div class="mainBody">
 
-  <header class="header showThing" id="roundsTittle">
+
+  <!-- Chosing a game mode -->
+  <header class="headerChoseGameMode" id="headerChoseGameMode">
+    <h2 class="text-center">STORY</h2>
+    <h1 class="text-center">
+        After reaching the tallest building on the depths, you take<br> a lift that takes you to an arena of sorts where some<br> unholy voices tell you that you must pass their trial if you<br> wish to escape this underwater coffin.
+        <br><br>
+        It’s now or never! You must win or wipe trying!
+    </h1>
+  </header>
+
+  <a class="singleBtn" id="singleBtn"><button>Single Player</button></a>
+  <a class="multiBtn" id="multiBtn"><button>Multi Player</button></a>
+
+
+
+  <!-- Chose how many rounds SinglePlayer-->
+  <header class="header doNotShow" id="roundsTittle">
     <h2 class="text-center">Game Mode</h2>
   </header>
 
-  <a class="oneRoundBtn showThing" id="oneRoundBtn" href="./SinglePlayerGame.html"><button>1 round</button></a>
-  <a class="fiveRoundBtn showThing" id="fiveRoundBtn" href="./SinglePlayerGame.html"><button>5 rounds</button></a>
-  <a class="sevenRoundBtn showThing" id="sevenRoundBtn" href="./SinglePlayerGame.html"><button>7 rounds</button></a>
+  <a class="oneRoundBtn doNotShow" id="oneRoundBtn" ><button>1 round</button></a>
+  <a class="fiveRoundBtn doNotShow" id="fiveRoundBtn" ><button>5 rounds</button></a>
+  <a class="sevenRoundBtn doNotShow" id="sevenRoundBtn" ><button>7 rounds</button></a>
 
-  <div class="playerScore hide">
+
+  <!-- game area Single player-->
+  <div class="playerScore hide" id="playerScoreBoard">
 
     <h4 class="text-center">Your Choice:</h4>
     <p id="playerChoice" class="text-center">hello</p>
@@ -97,7 +117,7 @@
 
   </div>
 
-  <div class="cpuScore hide">
+  <div class="cpuScore hide" id="cpuScoreBoard">
 
     <h4 class="text-center">Your Choice:</h4>
     <p id="cpuChoice" class="text-center">hello</p>

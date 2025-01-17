@@ -129,10 +129,62 @@ html
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-column-gap: 30px;
+    grid-row-gap: 15px;
     grid-template-rows: repeat(10, 1fr);
     background-image:url(../assets/Backgrounds/bd2f64c9-11f3-4457-94f9-a8682327dd59.png);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.singleBtn
+{
+    grid-row: 8 / 9;
+    grid-column: 3 / 6;
+    height: 70%;
+    width: 100%;
+}
+
+.singleBtn button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}
+
+.multiBtn
+{
+    grid-row: 8 / 9;
+    grid-column: 6 / 9;
+    height: 70%;
+    width: 100%;
+    
+}
+
+.multiBtn button
+{
+    background-color: #1C638C;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+}
+
+.headerChoseGameMode
+{
+    grid-column: 3 / 9;
+    grid-row: 2 / 5;
+    
+}
+
+.headerChoseGameMode h2
+{
+    font-size: 80px;
+}
+
+
+.headerChoseGameMode h1
+{
+    font-size: 32px;
 }
 
 .oneRoundBtn
@@ -329,10 +381,9 @@ html
     display: none;
 }
 
-.showThing
+.doNotShow
 {
-    display: block;
+    display: none;
 }
-
 
 /*MAIN MENU END*/

@@ -8,6 +8,10 @@ let roundWonSound = document.getElementById("roundWonSound")
 let gameWonSound = document.getElementById("gameWonSound")
 let gameLostSound = document.getElementById("gameLostSound")
 
+// GameMode ID's
+let singleBtn = document.getElementById("singleBtn")
+let multiBtn = document.getElementById("multiBtn")
+let headerChoseGameMode = document.getElementById("headerChoseGameMode")
 
 //Single player ID's
 let roundsTittle = document.getElementById("roundsTittle")
@@ -21,8 +25,10 @@ let ppBtn = document.getElementById("ppBtn")
 let lzBtn = document.getElementById("lzBtn")
 let spBtn = document.getElementById("spBtn")
 
+let playerScoreBoard = document.getElementById("playerScoreBoard")
 let playerChoice = document.getElementById("playerChoice")
 let playerScore = document.getElementById("playerScore")
+let cpuScoreBoard = document.getElementById("cpuScoreBoard")
 let cpuChoice = document.getElementById("cpuChoice")
 let cpuScore = document.getElementById("cpuScore")
 
@@ -74,5 +80,42 @@ setVolume()
 function oneRound()
 {
     victoryCondition = 1
+
+    roundsTittle.classList.toggle('hide')
+    oneRoundBtn.classList.toggle('hide')
+    fiveRoundBtn.classList.toggle('hide')
+    sevenRoundBtn.classList.toggle('hide')
+
+    scBtn.classList.toggle('hide')
+    rkBtn.classList.toggle('hide')
+    ppBtn.classList.toggle('hide')
+    lzBtn.classList.toggle('hide')
+    spBtn.classList.toggle('hide')
+    playerScoreBoard.classList.toggle('hide')
+    cpuScoreBoard.classList.toggle('hide')
     
+
+
 }
+
+function singlePlayer()
+{
+    headerChoseGameMode.classList.toggle('doNotShow')
+    multiBtn.classList.toggle('doNotShow')
+    singleBtn.classList.toggle('doNotShow')
+
+    oneRoundBtn.classList.toggle('doNotShow')
+    fiveRoundBtn.classList.toggle('doNotShow')
+    sevenRoundBtn.classList.toggle('doNotShow')
+    roundsTittle.classList.toggle('doNotShow')
+
+}
+
+oneRoundBtn.addEventListener('click', () => {
+    oneRound()
+    singleEnterCombat.play()
+})
+
+singleBtn.addEventListener('click', () => {
+    singlePlayer()
+})
